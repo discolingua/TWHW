@@ -6,25 +6,40 @@
 
 [node name="GameWorld" type="Node2D"]
 
-[node name="ParallaxBG" type="ParallaxBackground" parent="."]
+[node name="RootCamera" type="Camera2D" parent="."]
+position = Vector2( 452, 0 )
+z_index = 4096
+current = true
+limit_top = 0
+limit_bottom = 0
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBG"]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="ParallaxBG" type="ParallaxBackground" parent="YSort"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="YSort/ParallaxBG"]
+z_index = -100
 motion_mirroring = Vector2( 3200, 0 )
 
-[node name="parallax bg1" type="Sprite" parent="ParallaxBG/ParallaxLayer"]
+[node name="parallax bg1" type="Sprite" parent="YSort/ParallaxBG/ParallaxLayer"]
 position = Vector2( 1, 2 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBG"]
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 461, 327 )
+
+[node name="ParallaxBG2" type="ParallaxBackground" parent="YSort"]
+layer = 100
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="YSort/ParallaxBG2"]
+z_index = 10
 motion_scale = Vector2( 1.5, 1 )
 motion_mirroring = Vector2( 3200, 0 )
 
-[node name="parallax bg1" type="Sprite" parent="ParallaxBG/ParallaxLayer2"]
+[node name="parallax bg1" type="Sprite" parent="YSort/ParallaxBG2/ParallaxLayer2"]
 position = Vector2( 1, 2 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
-
-[node name="Player" parent="." instance=ExtResource( 1 )]

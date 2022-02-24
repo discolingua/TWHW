@@ -8,7 +8,7 @@ enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 # const BasicKnife = preload("res://Player/BasicKnife.tscn")
 
 const ACCELERATION = 600
-const MAX_SPEED = 100
+const MAX_SPEED = 800
 const FRICTION = 800
 
 
@@ -25,7 +25,8 @@ var powerUpRate : float = 1.5
 
 
 
-# reference to HUD components					
+# reference to HUD components
+onready var cameraNode : Node = get_node("/root/GameWorld/RootCamera")					
 # onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
 # onready var toolDisplay = get_node("/root/World/HUD_GUI/ActiveToolDisplay")
 
@@ -55,6 +56,8 @@ func walking(delta) -> void:
 	if _i != Vector2.ZERO:	
 		lastVelocity = _i
 		velocity = move_and_slide(_i * MAX_SPEED)
+		cameraNode.position = self.position;
+		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		state = STATES.IDLE
