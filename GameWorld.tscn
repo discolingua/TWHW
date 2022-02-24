@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/scrollbg2.png" type="Texture" id=2]
+[ext_resource path="res://images/scrollbg1.png" type="Texture" id=3]
+
+[node name="GameWorld" type="Node2D"]
+
+[node name="ParallaxBG" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBG"]
+motion_mirroring = Vector2( 3200, 0 )
+
+[node name="parallax bg1" type="Sprite" parent="ParallaxBG/ParallaxLayer"]
+position = Vector2( 1, 2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBG"]
+motion_scale = Vector2( 1.5, 1 )
+motion_mirroring = Vector2( 3200, 0 )
+
+[node name="parallax bg1" type="Sprite" parent="ParallaxBG/ParallaxLayer2"]
+position = Vector2( 1, 2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
