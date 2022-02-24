@@ -8,7 +8,7 @@ enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 # const BasicKnife = preload("res://Player/BasicKnife.tscn")
 
 const ACCELERATION = 600
-const MAX_SPEED = 800
+const MAX_SPEED = 600
 const FRICTION = 800
 
 
