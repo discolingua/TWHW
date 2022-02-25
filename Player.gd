@@ -5,7 +5,7 @@ extends KinematicBody2D
 # initialize state machine
 enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 
-# const BasicKnife = preload("res://Player/BasicKnife.tscn")
+const CardBullet = preload("res://CardBullet.tscn")
 
 const ACCELERATION = 600
 const MAX_SPEED = 600
@@ -43,6 +43,9 @@ func _physics_process(delta) -> void:
 func readButtons() -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		print(".")
+		var _shotInstance = CardBullet.instance()
+		_shotInstance.position = position
+		get_parent().add_child(_shotInstance)
 
 
 
@@ -59,6 +62,7 @@ func readMovement() -> Vector2:
 
 func walking(delta) -> void:
 	var _i = readMovement()
+	readButtons()
 	if _i != Vector2.ZERO:	
 		lastVelocity = _i
 		velocity = move_and_slide(_i * MAX_SPEED)
