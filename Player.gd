@@ -40,6 +40,12 @@ func _physics_process(delta) -> void:
 		STATES.WALKING: walking(delta)
 		
 
+func readButtons() -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		print(".")
+
+
+
 func readMovement() -> Vector2:
 	var _i = Vector2.ZERO
 	
@@ -56,7 +62,7 @@ func walking(delta) -> void:
 	if _i != Vector2.ZERO:	
 		lastVelocity = _i
 		velocity = move_and_slide(_i * MAX_SPEED)
-		cameraNode.position = self.position;
+		cameraNode.position = self.position
 		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -65,6 +71,7 @@ func walking(delta) -> void:
 
 func idle(delta) -> void:
 	var _i = readMovement()
+	readButtons()
 	if _i != Vector2.ZERO:
 		state = STATES.WALKING
 	else:
