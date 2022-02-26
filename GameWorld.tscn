@@ -19,7 +19,6 @@ limit_bottom = 0
 [node name="ParallaxBG" type="ParallaxBackground" parent="YSort"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="YSort/ParallaxBG"]
-visible = false
 z_index = -100
 motion_mirroring = Vector2( 3200, 0 )
 

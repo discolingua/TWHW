@@ -18,16 +18,22 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
+}, {
+"base": "Node2D",
+"class": "TitleWorld",
+"language": "GDScript",
+"path": "res://TitleWorld.gd"
 } ]
 _global_script_class_icons={
 "CardBullet": "",
-"Player": ""
+"Player": "",
+"TitleWorld": ""
 }
 
 [application]
 
 config/name="Tech Witch Hello World"
-run/main_scene="res://GameWorld.tscn"
+run/main_scene="res://TitleWorld.tscn"
 config/icon="res://icon.png"
 
 [display]
