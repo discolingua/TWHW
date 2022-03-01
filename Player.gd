@@ -30,11 +30,14 @@ onready var cameraNode : Node = get_node("/root/GameWorld/RootCamera")
 # onready var powerUpGauge = get_node("/root/World/HUD_GUI/PowerUpBar")
 # onready var toolDisplay = get_node("/root/World/HUD_GUI/ActiveToolDisplay")
 
+onready var animPlayer : AnimatedSprite = get_node("AnimatedSprite")
+
 func _ready() -> void:
-	pass
+	animPlayer.play("float")
 	
 
 func _physics_process(delta) -> void:
+	animPlayer.play("float")
 	match state:
 		STATES.IDLE: idle(delta)
 		STATES.WALKING: walking(delta)
