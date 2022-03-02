@@ -7,23 +7,15 @@ enum STATES {IDLE, WALKING, POWERING, ATTACKING}
 
 const CardBullet = preload("res://CardBullet.tscn")
 
-const ACCELERATION = 600
-const MAX_SPEED = 600
-const FRICTION = 800
-
+const ACCELERATION = 300
+const MAX_SPEED = 400
+const FRICTION = .1
 
 var state : int = STATES.IDLE
-
 
 # store most recent non-zero movement input for setting attack direction
 var velocity : Vector2 = Vector2.ZERO
 var lastVelocity : Vector2 = Vector2.ZERO
-
-
-var powerUpLevel : float = 0.0 
-var powerUpRate : float = 1.5
-
-
 
 # reference to HUD components
 onready var cameraNode : Node = get_node("/root/GameWorld/RootCamera")					
@@ -32,11 +24,14 @@ onready var cameraNode : Node = get_node("/root/GameWorld/RootCamera")
 
 onready var animPlayer : AnimatedSprite = get_node("AnimatedSprite")
 
+
 func _ready() -> void:
-	animPlayer.play("float")
+	var _tween : Tween = get_node("Tween")
+
 	
 
 func _physics_process(delta) -> void:
+	print(animPlayer.get_animation())
 	animPlayer.play("float")
 	match state:
 		STATES.IDLE: idle(delta)
@@ -46,6 +41,7 @@ func _physics_process(delta) -> void:
 func readButtons() -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		print(".")
+		animPlayer.play("throw")
 		var _shotInstance = CardBullet.instance()
 		_shotInstance.position = position
 		get_parent().add_child(_shotInstance)
@@ -67,6 +63,10 @@ func walking(delta) -> void:
 	var _i = readMovement()
 	readButtons()
 	if _i != Vector2.ZERO:	
+		if _i.x < 0:
+			animPlayer.flip_h = true
+		else:
+			animPlayer.flip_h = false
 		lastVelocity = _i
 		velocity = move_and_slide(_i * MAX_SPEED)
 		cameraNode.position = self.position

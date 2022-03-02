@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/twhw03.png-3507eeb6e9b3dab033dcff3134c68537.stex"
+path="res://.import/globebg.png-3c4a2a535b446aef77818e02c038854f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/twhw03.png"
-dest_files=[ "res://.import/twhw03.png-3507eeb6e9b3dab033dcff3134c68537.stex" ]
+source_file="res://images/globebg.png"
+dest_files=[ "res://.import/globebg.png-3c4a2a535b446aef77818e02c038854f.stex" ]
 
 [params]
 
