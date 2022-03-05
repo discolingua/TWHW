@@ -31,7 +31,6 @@ func _ready() -> void:
 	
 
 func _physics_process(delta) -> void:
-	print(animPlayer.get_animation())
 	animPlayer.play("float")
 	match state:
 		STATES.IDLE: idle(delta)

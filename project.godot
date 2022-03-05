@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Blackjack",
+"language": "GDScript",
+"path": "res://Blackjack.gd"
+}, {
 "base": "Area2D",
 "class": "CardBullet",
 "language": "GDScript",
 "path": "res://CardBullet.gd"
+}, {
+"base": "Node2D",
+"class": "Gameworld",
+"language": "GDScript",
+"path": "res://GameWorld.gd"
 }, {
 "base": "Spatial",
 "class": "NumbersWorld",
@@ -35,7 +45,9 @@ _global_script_classes=[ {
 "path": "res://TitleWorld.gd"
 } ]
 _global_script_class_icons={
+"Blackjack": "",
 "CardBullet": "",
+"Gameworld": "",
 "NumbersWorld": "",
 "Player": "",
 "TitleComputer": "",
