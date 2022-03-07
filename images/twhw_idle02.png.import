@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/twhw02.png-908194cb2aaa03fcf3c75942c6378a50.stex"
+path="res://.import/twhw_idle02.png-54b43b9a436437d374646437a611142e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/twhw02.png"
-dest_files=[ "res://.import/twhw02.png-908194cb2aaa03fcf3c75942c6378a50.stex" ]
+source_file="res://images/twhw_idle02.png"
+dest_files=[ "res://.import/twhw_idle02.png-54b43b9a436437d374646437a611142e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

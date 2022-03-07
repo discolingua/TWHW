@@ -1,5 +1,7 @@
 class_name Blackjack
 
+const DECKS = 4
+
 enum D_VAL {
 	C2 = 2,
 	C3 = 3,
@@ -49,7 +51,7 @@ func deal_card(hand, deck, num_of_cards=1):
 # Creates a standard playing card deck, defaulted to one deck
 func create_deck():
 	var deck : Array = [] 
-	for _i in range (1,4):
+	for _i in range (DECKS * 4):
 		deck.append_array( ['2','3','4','5','6','7','8','9','10','J','Q','K','A'])
 	deck.shuffle()
 	return deck

@@ -45,3 +45,18 @@ position = Vector2( 1, 2 )
 scale = Vector2( 1.0325, 1.01458 )
 texture = ExtResource( 3 )
 centered = false
+
+[node name="HUD" type="Control" parent="YSort"]
+margin_left = 27.0
+margin_top = 1.0
+margin_right = 878.0
+margin_bottom = 475.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardHolder" type="Label" parent="YSort/HUD"]
+margin_left = 14.0
+margin_top = 397.0
+margin_right = 196.0
+margin_bottom = 459.0

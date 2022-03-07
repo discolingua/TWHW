@@ -12,6 +12,7 @@ const MAX_SPEED = 400
 const FRICTION = .1
 
 var state : int = STATES.IDLE
+var isFlipped : bool = false
 
 # store most recent non-zero movement input for setting attack direction
 var velocity : Vector2 = Vector2.ZERO
@@ -24,14 +25,10 @@ onready var cameraNode : Node = get_node("/root/GameWorld/RootCamera")
 
 onready var animPlayer : AnimatedSprite = get_node("AnimatedSprite")
 
-
 func _ready() -> void:
-	var _tween : Tween = get_node("Tween")
-
-	
+	animPlayer.play("float")
 
 func _physics_process(delta) -> void:
-	animPlayer.play("float")
 	match state:
 		STATES.IDLE: idle(delta)
 		STATES.WALKING: walking(delta)
@@ -43,6 +40,8 @@ func readButtons() -> void:
 		animPlayer.play("throw")
 		var _shotInstance = CardBullet.instance()
 		_shotInstance.position = position
+		if isFlipped:
+			_shotInstance.speed *= -1
 		get_parent().add_child(_shotInstance)
 
 
@@ -64,8 +63,10 @@ func walking(delta) -> void:
 	if _i != Vector2.ZERO:	
 		if _i.x < 0:
 			animPlayer.flip_h = true
+			isFlipped = true
 		else:
 			animPlayer.flip_h = false
+			isFlipped = false
 		lastVelocity = _i
 		velocity = move_and_slide(_i * MAX_SPEED)
 		cameraNode.position = self.position
